@@ -33,7 +33,14 @@ function playGame() {
       while (!isValidInput) {
         userAnswer = prompt("Rock, Paper or Scissiors?");
 
-        if (userAnswer !== 'rock' && userAnswer !== 'paper' && userAnswer !== 'scissors') {
+        if (userAnswer !== null) {
+          userAnswer = userAnswer.toLowerCase();
+        }
+
+        if (userAnswer === null) {
+          isValidInput = true;
+          computerScore = 999;
+        } else if (userAnswer !== 'rock' && userAnswer !== 'paper' && userAnswer !== 'scissors') {
           console.log('Wrong input!');
         } else {
           isValidInput = true;
